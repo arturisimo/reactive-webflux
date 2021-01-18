@@ -48,7 +48,7 @@
     		
     			sourceQuijote.addEventListener("message", function(e){
     				var quote = JSON.parse(e.data);
-            		libro += "<p><strong><a href='/quotes/"+quote.id+"' target='_blank'>"+quote.id+"</a> | </strong>" + quote.content + "<p>";
+            		libro += "<p><strong><a href='"+url+"/"+quote.id+"' target='_blank'>"+quote.id+"</a> | </strong>" + quote.content + "<p>";
     				$("#content_quijote").html(libro);
 	    		});
     		}
