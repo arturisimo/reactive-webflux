@@ -11,7 +11,7 @@ services:
     container_name: intro-webflux
     build:
       context: ./intro-webflux/
-    image: edu/intro-webflux:v0.0.1-SNAPSHOT
+    image: arturisimo/intro-webflux:v0.0.1-SNAPSHOT
     ports:
      - "7000:7000"
     expose: 
@@ -23,7 +23,7 @@ services:
     restart: on-failure
     build:
       context: ./bolsa-webflux/
-    image: edu/bolsa-webflux:v0.0.1-SNAPSHOT
+    image: arturisimo/bolsa-webflux:v0.0.1-SNAPSHOT
     ports:
      - "7001:7001"
     expose: 
@@ -36,7 +36,7 @@ services:
     container_name: quijote-reactive
     build:
       context: ./quijote-reactive/
-    image: edu/quijote-reactive:v0.0.1-SNAPSHOT  
+    image: arturisimo/quijote-reactive:v0.0.1-SNAPSHOT  
     ports:
       - 7002:7002
     expose: 
@@ -49,7 +49,7 @@ services:
     container_name: client
     build:
       context: ./cliente-webapp/      
-    image: edu/cliente-webflux:v0.0.1-SNAPSHOT  
+    image: arturisimo/cliente-webapp:v0.0.1-SNAPSHOT  
     ports:
       - 8080:8080
     expose: 
@@ -81,4 +81,4 @@ services:
       timeout: 20s
       retries: 10  
     networks:
-     - edu_network       
+     - edu_network
