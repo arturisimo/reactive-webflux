@@ -1,0 +1,1 @@
+INSERT INTO acciones (company, valor) VALUES ('ll',222.2);

@@ -1,0 +1,84 @@
+version: '2'
+
+networks:
+  edu_network:
+
+volumes:
+  mysql.local.data:
+
+services:
+  intro:     
+    container_name: intro-webflux
+    build:
+      context: ./intro-webflux/
+    image: edu/intro-webflux:v0.0.1-SNAPSHOT
+    ports:
+     - "7000:7000"
+    expose: 
+    - "7000"
+    networks:
+     - edu_network
+  bolsa:
+    container_name: bolsa-webflux
+    restart: on-failure
+    build:
+      context: ./bolsa-webflux/
+    image: edu/bolsa-webflux:v0.0.1-SNAPSHOT
+    ports:
+     - "7001:7001"
+    expose: 
+    - "7001"
+    depends_on:
+      - rdbms
+    networks:
+     - edu_network
+  quijote-reactive:
+    container_name: quijote-reactive
+    build:
+      context: ./quijote-reactive/
+    image: edu/quijote-reactive:v0.0.1-SNAPSHOT  
+    ports:
+      - 7002:7002
+    expose: 
+      - "7002"  
+    depends_on:
+      - mongo
+    networks:
+     - edu_network   
+  client:
+    container_name: client
+    build:
+      context: ./cliente-webapp/      
+    image: edu/cliente-webflux:v0.0.1-SNAPSHOT  
+    ports:
+      - 8080:8080
+    expose: 
+      - "8080"
+    networks:
+     - edu_network    
+  mongo:
+    container_name: mongo.local
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+     - edu_network   
+  rdbms:
+    container_name: mysql.local
+    image: mysql:latest
+    restart: always
+    volumes:
+     - mysql.local.data:/usr/lib/mysql
+    ports:
+      - "5200:3306"
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bolsa
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute 'SHOW DATABASES;'"
+      interval: 2s
+      timeout: 20s
+      retries: 10  
+    networks:
+     - edu_network       

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Reactive</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+	
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Intro programacion reactiva</h1>
+       		<p class="lead">cliente que se suscribe al servicio de publicacion
+       		</p>
+		</div>
+  	</div>
+	
+	
+    <div class="container">
+    	<div class="col-md-3 col-lg-4" style="border:1px solid #ccc; margin:20px;padding:20px;">
+    		<p>Servicio de dias: <span class="url">http://localhost:7000/dias</span></p>
+			<a href="#" id="suscribir_dias"  class="btn btn-danger suscribir">Suscribir</a>
+			<a href="#" id="cancelar_dias"  class="btn btn-default cancelar">Cancelar</a>
+			<div id="content_dias" class="container datos"></div>
+		</div>
+		<div class="col-md-3 col-lg-4" style="border:1px solid #ccc; margin:20px;padding:20px;">
+			<p>Servicio de cuentas (MySQL): <span class="url">http://localhost:7001/acciones</span></p> 
+			<a href="#" id="suscribir_acciones"  class="btn btn-danger suscribir">Suscribir</a>
+			<a href="#" id="cancelar_acciones"  class="btn btn-default cancelar">Cancelar</a>
+			<div id="content_acciones" class="container datos"></div>
+		</div>
+		<div class="col-md-12 col-lg-12" style="border:1px solid #ccc; margin:20px;padding:20px;">
+			<p>Servicio de quijote (MongoDB): <span class="url">http://localhost:7002/quotes</span></p>  
+			<a href="#" id="suscribir_quijote"  class="btn btn-danger suscribir">Suscribir</a>
+			<a href="#" id="cancelar_quijote"  class="btn btn-default cancelar">Cancelar</a>
+			<div id="content_quijote" class="container datos"></div>
+		</div>
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="reactive.js"></script>
+    
+  </body>
+</html>
