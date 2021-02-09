@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 networks:
   edu_network:
@@ -44,7 +44,18 @@ services:
     depends_on:
       - mongo
     networks:
-     - edu_network   
+     - edu_network
+  unsplash-collections:
+    container_name: unsplash-collections
+    build:
+      context: ./unsplash-collections/
+    image: arturisimo/unsplash-collections:v0.0.1-SNAPSHOT  
+    ports:
+      - 7003:7003
+    expose: 
+      - "7003"  
+    networks:
+     - edu_network
   client:
     container_name: client
     build:
