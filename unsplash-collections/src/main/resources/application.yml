@@ -1,0 +1,9 @@
+server:
+  port: 7003
+  servlet:
+    context-path: /
+
+unsplash:
+  collections: https://api.unsplash.com/collections
+  client-id: 4wRa35O7Icc74NWi7kvfsOmXViPnruW2vmuyCmR374E
+  page_size: 30    
