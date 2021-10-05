@@ -1,3 +1,12 @@
+## Reactive manifesto
+
+Según el **reactive manifesto** las aplicaciones reactivas tienen 4 principios:
+
+* **Responsive** responde a tiempo y reacciona apropiadamente en la medida de lo posible.
+* **Elastic** frente a variaciones de carga el sistema se mantiene responsive. Elasticidad es la capacidad de añadir o eliminar nodos según la carga de trabajo.
+* **Resilient** son altamente tolerantes a los fallos, son responsive frente a ellos. **Replicación** Las mismas tareas se pueden replicar entre diferentes threads (concurrencia) o nodos (cluster). Los fallos son manejados dentro de cada componente
+* **Message-Driven** implica que un componente se ejecuta en respuesta a una o más notificaciones de eventos.
+
 ## Programación reactiva
 
 La programación reactiva es un nuevo paradigma en el desarrollo de aplicaciones. En la aplicación tradicional por cada petición a nuestra aplicación un hilo (thread) es bloqueado hasta procesar su respuesta; con el modelo de aplicación reactiva un hilo podría manejar varias peticiones de manera asíncrona y notificara mediante eventos su respuesta; además el término "reactivo" se refiere construir aplicaciones en base a eventos u en otras palabras a la reacción al cambio; es decir reaccionar a eventos de E/S. 
